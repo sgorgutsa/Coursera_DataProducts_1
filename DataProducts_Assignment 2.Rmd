@@ -1,0 +1,29 @@
+---
+title: "Leaflet maps in R markdown"
+author: "S. Gorgutsa"
+date: "1/10/2022"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+This is a simple demo of how a custom map can be added into R markdown document using Leaflet library. In this case we will add a map showing Physics Department of the Moscow State Univrsity.
+
+```{r}
+# Loading leaflet library
+library(leaflet)
+
+# Creating custom logo for marker
+MSU_PD_icon <- makeIcon(
+  iconUrl = "https://www.phys.msu.ru/rus/gallery/symbolics/img/sign-physfak-historical.jpg",
+  iconWidth =40, iconHeight = 40)
+# Create map
+MSU_PD <- leaflet() %>%
+    addTiles() %>%
+    addMarkers(lat=55.70024546484674, lng=37.52942597040042, popup = "Department of Physics, Moscow State University", icon = MSU_PD_icon )
+
+MSU_PD
+```
+
