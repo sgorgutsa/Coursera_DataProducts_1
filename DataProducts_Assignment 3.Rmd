@@ -1,0 +1,31 @@
+---
+title: "Interactive plots with Plotly in R markdown"
+author: "S. Gorgutsa"
+date: "1/11/2022"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+This is a simple demo of how an interactive plot can be added into R markdown document using Plotly library. In this case we will add an interactive surface plot for the 'volcano' dataset (included in R) and a scatter plot using 'mtcars' dataset. 
+
+```{r message = FALSE}
+# Loading Plotly library
+library(plotly)
+```
+
+```{r}
+# Creating interactive surface plot
+plot_ly(z=volcano, type="surface")
+```
+
+```{r message = FALSE}
+# Creating interactive scatter plot
+plot_ly(data = mtcars, x = ~wt, y = ~mpg, 
+        color = ~as.factor(cyl), size = ~hp,
+        text = ~paste("Weight: ", wt, 'MPG:', mpg),
+        type = "scatter",
+        mode = "markers",
+        fill = ~'') 
+```
