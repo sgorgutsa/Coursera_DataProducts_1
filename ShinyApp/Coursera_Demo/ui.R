@@ -45,9 +45,9 @@ shinyUI(fluidPage(
         # Show BMI table
         mainPanel(
             p(h5("")), textOutput("text_weight"),
-            textOutput("text_height"),  p(h5("Body Mass Index(BMI):")),
+            #textOutput("text_height"),  p(h5("Body Mass Index(BMI):")),
             textOutput("text_bmi"),
-            
+            textOutput("healthy_weight"),
             plotOutput(outputId = "distPlot"),
         )
     )
