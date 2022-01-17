@@ -18,7 +18,7 @@ shinyUI(fluidPage(
     # Sidebar with choice of imperial / metric system, weigh & height inputs
     sidebarPanel(
         helpText("Enter your weight and height to find your BMI"),  
-        selectInput("metric_imperial", label = h6("Select the measurement"), choices = list("Metric" = 1, "Imperial" = 2), selected = 1),
+        selectInput("metric_imperial", label = h6("Select the measurement system"), choices = list("Metric" = 1, "Imperial" = 2), selected = 1),
         conditionalPanel(
             condition ="input.metric_imperial == 1",
             numericInput("metric_weight", label = h6("Weight: [kg]"),min = 1, value = NULL),
